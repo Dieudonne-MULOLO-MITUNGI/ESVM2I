@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ form(fileForm) }}
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Adresse</th>
+            <th>Code postal</th>
+            <th>Ville</th>
+            <th>Date de paiement</th>
+            <th>Montant</th>
+            <th>Nature</th>
+        </tr>
+        {% for paiement in payments %}
+            <tr>
+                <td>{{ paiement.personne.nom }}</td>
+                <td>{{ paiement.personne.prenom }}</td>
+                <td>{{ paiement.personne.email }}</td>
+                {% if paiement.personne.adresse is not null %}
+                    <td>{{ paiement.personne.adresse.adresse}}</td>
+                    <td>{{ paiement.personne.adresse.codepostal }}</td>
+                    <td>{{ paiement.personne.adresse.ville }}</td>
+                {% else %}
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                {% endif %}
+                <td>{{ paiement.paiementDate | date('d/m/Y') }}</td>
+                <td>{{ paiement.prix }}</td>
+                <td>{{ paiement.paiementNature }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

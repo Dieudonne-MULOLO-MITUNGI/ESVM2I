@@ -159,45 +159,4 @@ class Adresse
     {
         return $this->ville;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->personnes = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add personne
-     *
-     * @param \AppBundle\Entity\Personne $personne
-     *
-     * @return Adresse
-     */
-    public function addPersonne(\AppBundle\Entity\Personne $personne)
-    {
-        $this->personnes[] = $personne;
-
-        return $this;
-    }
-
-    /**
-     * Remove personne
-     *
-     * @param \AppBundle\Entity\Personne $personne
-     */
-    public function removePersonne(\AppBundle\Entity\Personne $personne)
-    {
-        $this->personnes->removeElement($personne);
-    }
-
-    /**
-     * Get personnes
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPersonnes()
-    {
-        return $this->personnes;
-    }
 }

@@ -24,7 +24,7 @@ class Paiement
     /**
      * @var string
      *
-     * @ORM\Column(name="Paiement_date", type="datetime")
+     * @ORM\Column(name="Paiement_date", type="string", length=50)
      */
     private $paiementDate;
 
@@ -110,53 +110,5 @@ class Paiement
     public function getPaiementNature()
     {
         return $this->paiementNature;
-    }
-
-    /**
-     * Set prix
-     *
-     * @param string $prix
-     *
-     * @return Paiement
-     */
-    public function setPrix($prix)
-    {
-        $this->prix = $prix;
-
-        return $this;
-    }
-
-    /**
-     * Get prix
-     *
-     * @return string
-     */
-    public function getPrix()
-    {
-        return $this->prix;
-    }
-
-    /**
-     * Set personne
-     *
-     * @param \AppBundle\Entity\Personne $personne
-     *
-     * @return Paiement
-     */
-    public function setPersonne(\AppBundle\Entity\Personne $personne = null)
-    {
-        $this->personne = $personne;
-
-        return $this;
-    }
-
-    /**
-     * Get personne
-     *
-     * @return \AppBundle\Entity\Personne
-     */
-    public function getPersonne()
-    {
-        return $this->personne;
     }
 }
